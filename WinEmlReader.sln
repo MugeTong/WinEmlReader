@@ -1,0 +1,51 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.9.34902.65
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WinEmlReader", "WinEmlReader\WinEmlReader.csproj", "{986E24A7-E4DC-44C9-AA08-201ECE171DBC}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|ARM = Debug|ARM
+		Debug|ARM64 = Debug|ARM64
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|ARM = Release|ARM
+		Release|ARM64 = Release|ARM64
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM.ActiveCfg = Debug|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM.Build.0 = Debug|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM.Deploy.0 = Debug|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM64.ActiveCfg = Debug|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM64.Build.0 = Debug|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|ARM64.Deploy.0 = Debug|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x64.ActiveCfg = Debug|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x64.Build.0 = Debug|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x64.Deploy.0 = Debug|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x86.ActiveCfg = Debug|x86
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x86.Build.0 = Debug|x86
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Debug|x86.Deploy.0 = Debug|x86
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM.ActiveCfg = Release|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM.Build.0 = Release|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM.Deploy.0 = Release|ARM
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM64.ActiveCfg = Release|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM64.Build.0 = Release|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|ARM64.Deploy.0 = Release|ARM64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x64.ActiveCfg = Release|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x64.Build.0 = Release|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x64.Deploy.0 = Release|x64
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x86.ActiveCfg = Release|x86
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x86.Build.0 = Release|x86
+		{986E24A7-E4DC-44C9-AA08-201ECE171DBC}.Release|x86.Deploy.0 = Release|x86
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {B6EFB272-D320-4C7E-B683-EB3EAA8C196E}
+	EndGlobalSection
+EndGlobal

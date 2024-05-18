@@ -1,0 +1,12 @@
+﻿
+# IDE setting files
+.idea
+.vs
+
+
+# Compiled binary addons (node-gyp)
+WinEmlReader/obj
+
+
+
+
