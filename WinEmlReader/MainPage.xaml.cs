@@ -24,7 +24,7 @@ namespace WinEmlReader
     {
         public MainPage()
         {
-            this.InitializeComponent();
+            InitializeComponent();
         }
     }
 }

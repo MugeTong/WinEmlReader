@@ -85,7 +85,7 @@ namespace WinEmlReader
 
         /// <summary>
         /// 在将要挂起应用程序执行时调用。  在不知道应用程序
-        /// 无需知道应用程序会被终止还是会恢复，
+        /// 无需知道应用程序会终止还是会恢复，
         /// 并让内存内容保持不变。
         /// </summary>
         /// <param name="sender">挂起的请求的源。</param>
