@@ -2,22 +2,44 @@
     x:Class="WinEmlReader.MainPage"
     xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-    xmlns:local="using:WinEmlReader"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:wsa="using:Windows.Storage.AccessCache"
     mc:Ignorable="d">
 
-    <Grid AllowDrop="True"
-          Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+    <!-- define static resources -->
+    <Page.Resources>
+    </Page.Resources>
 
+
+    <!-- define the layout of the page -->
+    <Grid AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Define the layout of the grid to put CommandBar -->
         <Grid.RowDefinitions>
-            <RowDefinition Height="Auto"/>
-            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto" />
+            <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
         <!-- CommandBar -->
+        <CommandBar x:Name="MailCommandBar" Grid.Row="0" DefaultLabelPosition="Right">
+            <!-- When this app is opend, files recently opened will be shown -->
+            <CommandBar.Content>
+                <TextBlock Text="Recently opened" Style="{ThemeResource TitleTextBlockStyle}" Margin="12,4,0,0" />
+            </CommandBar.Content>
 
+            <!-- Open new eml file | donate for us button | choose different language | about -->
+            <AppBarButton x:Name="FileOpenButton" Label="Open" Icon="OpenFile" />
+            <AppBarButton x:Name="DonateButton" Icon="Like" Label="Donate" />
+            <AppBarButton x:Name="LanguageButton" Icon="Globe" Label="English" />
+            <CommandBar.SecondaryCommands>
+                <AppBarButton x:Name="AboutButton" Label="About">
+                    <AppBarButton.Icon>
+                        <FontIcon Glyph="&#xE946;" />
+                    </AppBarButton.Icon>
+                </AppBarButton>
+            </CommandBar.SecondaryCommands>
+        </CommandBar>
 
-
+        <!-- list of eml file opened recently -->
     </Grid>
 </Page>

@@ -2,6 +2,7 @@
 # IDE setting files
 /.idea/
 /.vs/
+/.vscode/
 
 
 # Build results
