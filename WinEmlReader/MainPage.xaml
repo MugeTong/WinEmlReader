@@ -28,8 +28,8 @@
             </CommandBar.Content>
 
             <!-- Open new eml file | donate for us button | choose different language | about -->
-            <AppBarButton x:Name="FileOpenButton" Label="Open" Icon="OpenFile" />
-            <AppBarButton x:Name="DonateButton" Icon="Like" Label="Donate" />
+            <AppBarButton x:Name="FileOpenButton" Label="Open" Icon="OpenFile" Click="FileOpenButton_Click"/>
+            <AppBarButton x:Name="DonateButton" Icon="Like" Label="Donate" Click="DonateButton_OnClick"/>
             <AppBarButton x:Name="LanguageButton" Icon="Globe" Label="English" />
             <CommandBar.SecondaryCommands>
                 <AppBarButton x:Name="AboutButton" Label="About">

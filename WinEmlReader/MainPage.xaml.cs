@@ -2,6 +2,8 @@
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.DataTransfer;
 using Windows.UI.Xaml;
+using Windows.Storage.Pickers;
+using Windows.UI.Xaml.Controls;
 
 // https://go.microsoft.com/fwlink/?LinkId=402352&clcid=0x804 上介绍了“空白页”项模板
 
@@ -56,6 +58,40 @@ namespace WinEmlReader
 
                 index++;
             }
+        }
+
+        // open new file with `FileOpen` button
+        private async void FileOpenButton_Click(object sender, RoutedEventArgs e)
+        {
+            // Open the file picker
+            var picker = new FileOpenPicker
+            {
+                ViewMode = PickerViewMode.List, // Set the view mode of the file picker
+                SuggestedStartLocation = PickerLocationId.DocumentsLibrary // Consider to change it adaptively
+            };
+
+            // Add the filter of the file picker
+            picker.FileTypeFilter.Add(".eml");
+            var file = await picker.PickSingleFileAsync();
+            if (file != null)
+            {
+                Frame.Navigate(typeof(EmlPage), file);
+            }
+        }
+
+        // Open the donation page with the `Donate` button
+        private async void DonateButton_OnClick(object sender, RoutedEventArgs e)
+        {
+            var dialog = new ContentDialog
+            {
+                Title = "Just Kidding",
+                Content = "In development.",
+                CloseButtonText = "OK"
+            };
+            await dialog.ShowAsync();
+
+            // // Open the donation page
+            // Frame.Navigate(typeof(DonationPage));
         }
     }
 }
