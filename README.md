@@ -10,6 +10,12 @@ It's now still in development ...
 
 ### History
 
+#### 0.2.1	2024-05-23	MUGE_TONG
+
+- Support to view the mail body in the HTML parser
+
+---
+
 #### 0.2.0	2024-05-23	MUGE_TONG
 
 - Support to open  `*.eml` file and view the body of mail

@@ -21,7 +21,7 @@
         </Grid.RowDefinitions>
 
         <!-- CommandBar -->
-        <CommandBar x:Name="MailCommandBar" Grid.Row="0" DefaultLabelPosition="Right">
+        <CommandBar x:Name="MainCommandBar" Grid.Row="0" DefaultLabelPosition="Right">
             <!-- When this app is opend, files recently opened will be shown -->
             <CommandBar.Content>
                 <TextBlock Text="Recently opened" Style="{ThemeResource TitleTextBlockStyle}" Margin="12,4,0,0" />

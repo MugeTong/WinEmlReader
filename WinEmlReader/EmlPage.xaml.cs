@@ -25,13 +25,18 @@ namespace WinEmlReader
         {
             base.OnNavigatedTo(e);
             // Get the EML file from the navigation parameter
-            // By this step, the file must be .eml file (class: Windows.Storage.StorageFile)
+            // By this step, the file must be an EML file (class: Windows.Storage.StorageFile)
             var message = await ReadEmlFile(e.Parameter as Windows.Storage.StorageFile);
-            if (message == null) return; // If the message is null, return
+            if (message == null)
+            {
+                Frame.GoBack();  // If the file is not a valid EML file, go back to the previous page
+                return;
+            }
 
             // Display the email file subject in the WebView
             ApplicationView.GetForCurrentView().Title = message.Subject;
-            EmlContent.Text = message.HtmlBody;
+
+            RenderMimeMessage(message);
         }
 
         // Read the EML file
@@ -54,6 +59,22 @@ namespace WinEmlReader
             }
 
             return null;
+        }
+
+        // Render the MimeMessage in the WebView
+        private void RenderMimeMessage(MimeMessage message)
+        {
+            // Create a new StringBuilder
+            var builder = new StringBuilder();
+            // Append the HTML header
+            builder.Append("<html><head><meta charset='utf-8'></head><body>");
+            // Append the HTML body
+            builder.Append(message.HtmlBody);
+            // Append the HTML footer
+            builder.Append("</body></html>");
+            // Display the HTML content in the WebView
+            EmlBodyWebView.NavigateToString(builder.ToString());
+
         }
 
         // Display the error message

@@ -15,9 +15,9 @@
             <RowDefinition Height="*" />
         </Grid.RowDefinitions>
 
-        <ScrollViewer x:Name="EmlContentScrollViewer" Grid.Row="1">
-            <TextBox x:Name="EmlContent" TextWrapping="Wrap" IsReadOnly="True"></TextBox>
-        </ScrollViewer>
+        <Grid Grid.Row="3" >
+            <WebView x:Name="EmlBodyWebView" AllowDrop="False" CanDrag="True"/>
+        </Grid>
 
     </Grid>
 
