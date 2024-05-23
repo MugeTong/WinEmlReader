@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
 using Windows.UI.Xaml;
@@ -20,6 +21,8 @@ namespace WinEmlReader
         {
             InitializeComponent();
             Suspending += OnSuspending;
+            // Register the encoding provider to decode with different encodings.
+            Encoding.RegisterProvider(CodePagesEncodingProvider.Instance);
         }
 
         /// <summary>

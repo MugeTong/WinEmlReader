@@ -14,7 +14,7 @@
 
     <!-- define the layout of the page -->
     <Grid AllowDrop="True" DragOver="Grid_DragOver" Drop="Grid_Drop" Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <!-- Define the layout of the grid to put CommandBar -->
+        <!-- Define the layout of the grid to put CommandBar | recent files -->
         <Grid.RowDefinitions>
             <RowDefinition Height="Auto" />
             <RowDefinition Height="*" />
