@@ -10,6 +10,8 @@ using Windows.UI.ViewManagement;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
+using Microsoft.UI.Xaml.Controls;
+using Microsoft.Web.WebView2.Core;
 
 namespace WinEmlReader
 {
@@ -20,7 +22,7 @@ namespace WinEmlReader
             InitializeComponent();
         }
 
-        // Load the EML file
+        // When navigated to this page, load the EML file
         protected override async void OnNavigatedTo(NavigationEventArgs e)
         {
             base.OnNavigatedTo(e);
@@ -29,14 +31,21 @@ namespace WinEmlReader
             var message = await ReadEmlFile(e.Parameter as Windows.Storage.StorageFile);
             if (message == null)
             {
-                Frame.GoBack();  // If the file is not a valid EML file, go back to the previous page
+                Frame.GoBack(); // If the file is not a valid EML file, go back to the previous page
                 return;
             }
 
-            // Display the email file subject in the WebView
+            // Display the email file subject as the title of the window
             ApplicationView.GetForCurrentView().Title = message.Subject;
-
+            // Render the email
             RenderMimeMessage(message);
+        }
+
+        // When try to navigate away from this page, reset the title of the window
+        protected override void OnNavigatingFrom(NavigatingCancelEventArgs e)
+        {
+            base.OnNavigatingFrom(e);
+            ApplicationView.GetForCurrentView().Title = string.Empty;
         }
 
         // Read the EML file
@@ -62,7 +71,7 @@ namespace WinEmlReader
         }
 
         // Render the MimeMessage in the WebView
-        private void RenderMimeMessage(MimeMessage message)
+        private async void RenderMimeMessage(MimeMessage message)
         {
             // Create a new StringBuilder
             var builder = new StringBuilder();
@@ -72,9 +81,10 @@ namespace WinEmlReader
             builder.Append(message.HtmlBody);
             // Append the HTML footer
             builder.Append("</body></html>");
+            // Ensure the CoreWebView2 object is initialized
+            await EmlBodyWebView.EnsureCoreWebView2Async();
             // Display the HTML content in the WebView
             EmlBodyWebView.NavigateToString(builder.ToString());
-
         }
 
         // Display the error message

@@ -2,6 +2,7 @@
 using System.Text;
 using Windows.ApplicationModel;
 using Windows.ApplicationModel.Activation;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Navigation;
@@ -48,23 +49,52 @@ namespace WinEmlReader
                     //TODO: 从之前挂起的应用程序加载状态
                 }
 
-                // 将框架放在当前窗口中
+                // Place the frame in the current Window
                 Window.Current.Content = rootFrame;
             }
 
-            if (e.PrelaunchActivated == false)
+            // if the app is prelaunched, do nothing
+            if (e.PrelaunchActivated) return;
+
+            if (rootFrame.Content == null)
             {
-                if (rootFrame.Content == null)
-                {
-                    // 当导航堆栈尚未还原时，导航到第一页，
-                    // 并通过将所需信息作为导航参数传入来配置
-                    // 参数
-                    rootFrame.Navigate(typeof(MainPage), e.Arguments);
-                }
-                // 确保当前窗口处于活动状态
-                Window.Current.Activate();
+                // When the navigation stack isn't restored navigate to the first page,
+                // configuring the new page by passing required information as a navigation parameter
+                rootFrame.Navigate(typeof(MainPage), e.Arguments);
             }
+
+            // Ensure the current window is active
+            Window.Current.Activate();
+
+            // Register the back requested event
+            SystemNavigationManager.GetForCurrentView().BackRequested += App_BackRequested;
+            rootFrame.Navigated += RootFrame_Navigated;
         }
+
+        // change the back button visibility after navigation
+        private static void RootFrame_Navigated(object sender, NavigationEventArgs e)
+        {
+            if (!(Window.Current.Content is Frame rootFrame)) return;
+            SystemNavigationManager.GetForCurrentView().AppViewBackButtonVisibility = rootFrame.CanGoBack
+                ? AppViewBackButtonVisibility.Visible
+                : AppViewBackButtonVisibility.Collapsed;
+        }
+
+        // Handle the back requested event
+        private static void App_BackRequested(object sender, BackRequestedEventArgs e)
+        {
+            // Check that no one has already handled this
+            if (e.Handled) return;
+
+            // Default is to navigate back within the Frame
+            if (!(Window.Current.Content is Frame frame && frame.CanGoBack)) return;
+
+            // Navigate back
+            frame.GoBack();
+            // Signal handled so the system doesn't navigate back through the app stack
+            e.Handled = true;
+        }
+
 
         /// <summary>
         /// 导航到特定页失败时调用

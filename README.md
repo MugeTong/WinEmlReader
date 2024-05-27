@@ -10,28 +10,36 @@ It's now still in development ...
 
 ### History
 
+#### 0.2.2	2024-05-27	MUGE_TONG
+
+- Update the HTML parser, use `WebView2` to render the mail body
+- Update the window title, which supports solving `back` request
+- Change the lowest version goal to Windows 10, version 1809
+
+---
+
 #### 0.2.1	2024-05-23	MUGE_TONG
 
-- Support to view the mail body in the HTML parser
+- Support viewing the mail body in the HTML parser
 
 ---
 
 #### 0.2.0	2024-05-23	MUGE_TONG
 
-- Support to open  `*.eml` file and view the body of mail
+- Support opening `*.eml` file and view the body of mail
 
 ---
 
 #### 0.1.3	2024-05-23	MUGE_TONG
 
-- Support to open `*.eml` file with the `Open` button
+- Support opening `*.eml` file with the `Open` button
 
 ---
 
 #### 0.1.2	2024-05-23	MUGE_TONG
 
 - Update the `MainPage` and `EmlPage` to make it available to use
-- Support to drag and drop the `*.eml` file to the window to open it
+- Support dragging and dropping the `*.eml` file to the window to open it
 - Update the `.gitignore` file and `LICENSE` file
 - Clear some unused namespaces and codes
 
